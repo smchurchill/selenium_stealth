@@ -2,4 +2,4 @@
 
 ## [0.1.0] - 2024-07-11
 
-- Initial release
+- Adapted selenium stealth python module to ruby
