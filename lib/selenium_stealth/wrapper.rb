@@ -13,8 +13,7 @@ module SeleniumStealth
 
     def self.evaluate_on_new_document(driver, page_function, *args)
       js_code = evaluation_string(page_function, *args)
-      driver.execute_cdp("Page.addScriptToEvaluateOnNewDocument",
-                         { "source" => js_code })
+      driver.execute_cdp("Page.addScriptToEvaluateOnNewDocument", source: js_code)
     end
   end
 end

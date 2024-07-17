@@ -6,7 +6,7 @@ require_relative "wrapper"
 module SeleniumStealth
   # adds js that affects the nav languages
   class NavigatorLanguages
-    def self.apply(driver, languages:, **_kwargs)
+    def self.apply(driver, languages, **_kwargs)
       unless driver.is_a?(Selenium::WebDriver::Driver)
         raise ArgumentError,
               "driver must be an instance of Selenium::WebDriver::Driver"

@@ -6,7 +6,7 @@ require_relative "wrapper"
 module SeleniumStealth
   # redefines user agent
   class UserAgentOverride
-    def self.apply(driver, user_agent: nil, ua_languages: nil, platform: nil, **_kwargs)
+    def self.apply(driver, user_agent = nil, ua_languages = nil, platform = nil, **_kwargs)
       unless driver.is_a?(Selenium::WebDriver::Driver)
         raise ArgumentError,
               "driver must be an instance of Selenium::WebDriver::Driver"
@@ -16,7 +16,7 @@ module SeleniumStealth
       ua.gsub("HeadlessChrome", "Chrome")
 
       override =
-        if language && platform
+        if ua_languages && platform
           { "userAgent" => ua, "acceptLanguage" => ua_languages, "platform" => platform }
         elsif platform
           { "userAgent" => ua, "platform" => platform }
@@ -26,7 +26,7 @@ module SeleniumStealth
           { "userAgent" => ua }
         end
 
-      driver.execute_cdp("Network.setUserAgentOverride", override)
+      driver.execute_cdp("Network.setUserAgentOverride", **override)
     end
   end
 end

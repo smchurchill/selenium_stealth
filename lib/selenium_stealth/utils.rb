@@ -14,7 +14,7 @@ module SeleniumStealth
 
       js_path = File.join(File.dirname(__FILE__), "js", "utils.js")
       js_content = File.read(js_path)
-      Wrapper.evaluateOnNewDocument(driver, js_content)
+      Wrapper.evaluate_on_new_document(driver, js_content)
     end
   end
 end

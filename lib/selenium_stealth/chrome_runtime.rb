@@ -6,7 +6,7 @@ require_relative "wrapper"
 module SeleniumStealth
   # adds js that affects the chrome runtime libraries
   class ChromeRuntime
-    def self.apply(driver, run_on_insecure_origins: false, **_kwargs)
+    def self.apply(driver, run_on_insecure_origins = false, **_kwargs)
       unless driver.is_a?(Selenium::WebDriver::Driver)
         raise ArgumentError,
               "driver must be an instance of Selenium::WebDriver::Driver"
